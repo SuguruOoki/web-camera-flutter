@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './itemAdd.dart';
+import 'imagePickerUtil.dart';
+import 'itemAdd.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,9 +25,9 @@ class Demo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sample Items',
+      title: 'WEB-Camera',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: ItemListPage(),
@@ -83,6 +84,11 @@ class _ItemListPageState extends State<ItemListPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () async {
+          // カメラ
+          // final cameraFile =
+          //     await ImagePickerUtil.pickImage(source: ImageSource.camera);
+          // ギャラリー
+          final galleryFile = await ImagePickerUtil.pickImage(source: ImageSource.gallery)
           final newListText = await Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
