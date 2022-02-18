@@ -1,4 +1,4 @@
-# demoapp
+# web-camera
 
 A new Flutter project.
 
